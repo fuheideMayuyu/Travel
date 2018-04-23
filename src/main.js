@@ -11,9 +11,13 @@ import 'styles/reset.css'
 import 'styles/border.css'
 // 下载字体文件，在main.js中引入字体文件，然后使用
 import 'styles/iconfont.css'
+// 引入轮播图插件
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
+Vue.use(VueAwesomeSwiper)
 
 /* eslint-disable no-new */
 new Vue({

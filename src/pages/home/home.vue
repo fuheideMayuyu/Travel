@@ -1,15 +1,20 @@
 <template>
   <div>
-    hallo world
+    <home-header></home-header>
   </div>
 </template>
 
 <script type='text/ecmascript-6'>
+import HomeHeader from './components/header'
+
 export default {
-  name: 'home'
+  name: 'home',
+  components: {
+    HomeHeader
+  }
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

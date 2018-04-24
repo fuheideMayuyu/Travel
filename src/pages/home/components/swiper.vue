@@ -1,9 +1,9 @@
 <template>
   <!-- 在轮播图外面加一个div，解决图片未加载时高度塌陷问题 -->
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
       <!-- slides -->
-      <swiper-slide v-for="item of swiperList" :key="item.id">
+      <swiper-slide v-for="item of list" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" />
       </swiper-slide>
       <!-- Optional controls -->
@@ -15,27 +15,23 @@
 <script type='text/ecmascript-6'>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
+        autoplay: 3000,
         // 获取下方焦点
         pagination: '.swiper-pagination',
         // 让轮播图支持循环轮播
         loop: true
-      },
-      // 解决轮播图不能循环问题
-      swiperList: [
-        {
-          id: '001',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1802/e3/62ce7362ca051d02.jpg_640x200_6db551b7.jpg'
-        },
-        {
-          id: '002',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1801/93/ce59d182aca07102.jpg_640x200_ba03d44c.jpg'
-        }
-      ]
+      }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }

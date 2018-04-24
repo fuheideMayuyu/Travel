@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
             <div class="icon-img">
@@ -16,77 +16,21 @@
 <script type='text/ecmascript-6'>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      iconsList: [
-        {
-          id: '001',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png',
-          desc: '景点门票'
-        },
-        {
-          id: '002',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png',
-          desc: '滑雪季'
-        },
-        {
-          id: '003',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png',
-          desc: '泡温泉'
-        },
-        {
-          id: '004',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png',
-          desc: '动植园'
-        },
-        {
-          id: '005',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png',
-          desc: '景点门票'
-        },
-        {
-          id: '006',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png',
-          desc: '滑雪季'
-        },
-        {
-          id: '007',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png',
-          desc: '泡温泉'
-        },
-        {
-          id: '008',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png',
-          desc: '动植园'
-        },
-        {
-          id: '009',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png',
-          desc: '一日游'
-        },
-        {
-          id: '010',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png',
-          desc: '一日游'
-        }
-      ]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   // 解决无法滑动到第二页的问题
   computed: {
     pages () {
       const pages = []
-      this.iconsList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
@@ -102,7 +46,6 @@ export default {
 <style lang='stylus' scoped>
 @import '~styles/varibles.styl'
 @import '~styles/mixins.styl'
-
 .icons >>> .swiper-container
   height 0
   padding-bottom 50%

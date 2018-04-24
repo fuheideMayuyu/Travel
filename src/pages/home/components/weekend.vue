@@ -2,7 +2,7 @@
   <div>
     <div class="title">周末去哪儿</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl">
         </div>
@@ -18,53 +18,8 @@
 <script type='text/ecmascript-6'>
 export default {
   name: 'HomeWeekend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '001',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/source/1505/fa/ca65fde9677de2.jpg_r_640x214_4500e3ff.jpg',
-          title: '大连圣亚海洋世界',
-          desc: '浪漫大连首站，浪漫的海洋主题乐园'
-        },
-        {
-          id: '002',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/source/1505/fa/ca65fde9677de2.jpg_r_640x214_4500e3ff.jpg',
-          title: '大连圣亚海洋世界',
-          desc: '浪漫大连首站，浪漫的海洋主题乐园'
-        },
-        {
-          id: '003',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/source/1505/fa/ca65fde9677de2.jpg_r_640x214_4500e3ff.jpg',
-          title: '大连圣亚海洋世界',
-          desc: '浪漫大连首站，浪漫的海洋主题乐园'
-        },
-        {
-          id: '004',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/source/1505/fa/ca65fde9677de2.jpg_r_640x214_4500e3ff.jpg',
-          title: '大连圣亚海洋世界',
-          desc: '浪漫大连首站，浪漫的海洋主题乐园'
-        },
-        {
-          id: '005',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/source/1505/fa/ca65fde9677de2.jpg_r_640x214_4500e3ff.jpg',
-          title: '大连圣亚海洋世界',
-          desc: '浪漫大连首站，浪漫的海洋主题乐园'
-        },
-        {
-          id: '006',
-          imgUrl:
-            'http://img1.qunarzz.com/sight/source/1505/fa/ca65fde9677de2.jpg_r_640x214_4500e3ff.jpg',
-          title: '大连圣亚海洋世界',
-          desc: '浪漫大连首站，浪漫的海洋主题乐园'
-        }
-      ]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
@@ -73,14 +28,13 @@ export default {
 @import '~styles/mixins.styl'
 
 .title
-  margin-top 0.2rem
   line-height 0.8rem
   background #eee
   text-indent 0.2rem
 .item-img-wrapper
   overflow hidden
   height 0
-  padding-bottom 33.9%
+  padding-bottom 37.09%
   .item-img
     width 100%
 .item-info

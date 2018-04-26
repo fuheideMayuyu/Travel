@@ -15,6 +15,7 @@ import HomeSwiper from './components/swiper'
 import HomeIcons from './components/icons'
 import HomeRecommend from './components/recommend'
 import HomeWeekend from './components/weekend'
+import {mapState} from 'vuex'
 
 export default {
   name: 'home',
@@ -32,6 +33,9 @@ export default {
       recommendList: [],
       weekendList: []
     }
+  },
+  computed: {
+    ...mapState(['city'])
   },
   methods: {
     getHomeInfo () {
@@ -53,6 +57,7 @@ export default {
     this.getHomeInfo()
   },
   activated () {
+    // 当城市被改变时重新发送ajax请求
     if (this.lastCity !== this.city) {
       this.lastCity = this.city
       this.getHomeInfo()

@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// 引入vuex状态管理
+import store from './store'
 // 解决移动端点击链接有3s延迟的问题
 import fastClick from 'fastclick'
 // 在main.js的入口文件中引入初始样式表
@@ -23,6 +25,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store,
   components: {
     App
   },

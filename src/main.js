@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import 'babel-polyfill'
 // 引入vuex状态管理
 import store from './store'
 // 解决移动端点击链接有3s延迟的问题

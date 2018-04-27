@@ -12,14 +12,16 @@
         </div>
       </div>
     </div>
-    <common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClose">
-
-    </common-gallary>
+    <common-fade>
+      <common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClose">
+      </common-gallary>
+    </common-fade>
   </div>
 </template>
 
 <script type='text/ecmascript-6'>
 import CommonGallary from 'common/gallary/gallary'
+import CommonFade from 'common/fade/fade'
 
 export default {
   name: 'DetailBanner',
@@ -42,7 +44,8 @@ export default {
     }
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    CommonFade
   }
 }
 </script>
